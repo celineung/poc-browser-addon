@@ -3,6 +3,7 @@
 const STORAGE_KEY = "isMessageSent";
 
 chrome.storage.onChanged.addListener(receiveEventFromStorage);
+chrome.browserAction.onClicked.addListener(displayConsoleLog);
 
 function receiveEventFromStorage() {
     chrome.storage.local.get(STORAGE_KEY, keepPopupClosedAndEnableAddon)
@@ -16,4 +17,8 @@ function keepPopupClosedAndEnableAddon(result) {
             popup: ''
         });
     }
+}
+
+function displayConsoleLog() {
+    console.log('Voilà');
 }
